@@ -9,7 +9,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import org.ctfcracktools.ui.*;
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 /*
  * Created by JFormDesigner on Wed Nov 24 18:42:26 CST 2021
  */
@@ -41,8 +41,8 @@ public class MainUi extends JPanel {
         decodePanel1 = new DecodePanel();
         decodePanel2 = new DecodePanel();
         autoConvertRadix1 = new AutoConvertRadix();
-        pluginsConfig1 = new PluginsConfig();
-        settingConfig1 = new SettingConfig();
+//        pluginsConfig1 = new PluginsConfig();
+//        settingConfig1 = new SettingConfig();
         about1 = new About();
 
         //======== this ========
@@ -62,8 +62,8 @@ public class MainUi extends JPanel {
             }
             tabbedPane1.addTab("DaE", tabbedPane2);
             tabbedPane1.addTab("RadixConvert", autoConvertRadix1);
-            tabbedPane1.addTab("PluginsConfig", pluginsConfig1);
-            tabbedPane1.addTab("SettingConfig", settingConfig1);
+//            tabbedPane1.addTab("PluginsConfig", pluginsConfig1);
+//            tabbedPane1.addTab("SettingConfig", settingConfig1);
             tabbedPane1.addTab("About", about1);
         }
         add(tabbedPane1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
@@ -83,8 +83,8 @@ public class MainUi extends JPanel {
     private DecodePanel decodePanel1;
     private DecodePanel decodePanel2;
     private AutoConvertRadix autoConvertRadix1;
-    private PluginsConfig pluginsConfig1;
-    private SettingConfig settingConfig1;
+//    private PluginsConfig pluginsConfig1;
+//    private SettingConfig settingConfig1;
     private About about1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     protected static JPopupMenu tabMenu = new JPopupMenu();

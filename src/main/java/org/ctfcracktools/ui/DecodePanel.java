@@ -5,8 +5,8 @@ package org.ctfcracktools.ui;/*
 import org.ctfcracktools.Config;
 import org.ctfcracktools.fuction.CodeMode;
 import org.ctfcracktools.fuction.CoreFunc;
-import org.ctfcracktools.fuction.PythonFunc;
-import org.ctfcracktools.json.PluginsJson;
+//import org.ctfcracktools.fuction.PythonFunc;
+//import org.ctfcracktools.json.PluginsJson;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -33,46 +33,48 @@ public class DecodePanel extends JPanel {
         int length = resultArea.getText().replace("\r|\n","").length();
         resultCharacterCount.setText("ResultArea - Now Result Character Count:"+length);
     }
-    private void pluginsComboBoxActionPerformed(ActionEvent e) {
-        // TODO add your code here
-        if (pluginsComboBox.getSelectedIndex()==0){
-            return;
-        }
-        String select = pluginsComboBox.getItemAt(pluginsComboBox.getSelectedIndex());
 
-        Map<String,Object> plugin = json.search(select);
-        String[] prams = {};
-        ArrayList<String> keys = new ArrayList<>();
-        if (plugin.containsKey("key")){
-            keys = (ArrayList<String>) plugin.get("key");
-            prams = new String[keys.size()+1];
-        }
-        Config.pyFunc.loadFile(plugin.get("path").toString());
-        if (keys.size()>=1){
-            prams[0] = inputArea.getText();
-            for (int i = 1;i<prams.length;i++){
-                prams[i] = JOptionPane.showInputDialog("Please input "+keys.get(i-1));
-            }
-            resultArea.setText(Config.pyFunc.execFuncOfArr(Config.pyFunc.loadPythonFunc(Config.pyFunc.interpreter,"main"),prams).toString());
-        }else {
-            resultArea.setText(Config.pyFunc.execFuncOfArr(Config.pyFunc.loadPythonFunc(Config.pyFunc.interpreter,"main"),inputArea.getText()).toString());
-        }
-        pluginsComboBox.setSelectedIndex(0);
-    }
-    private void loadPlugin(){
-        plugins = json.parseJson();
-        String[] name = new String[plugins.size()+1];
-        name[0] = "Plugins as";
-        for(int i=1;i<=plugins.size();i++){
-            name[i] = String.valueOf(plugins.get(i-1).get("name"));
-        }
-        DefaultComboBoxModel model = new DefaultComboBoxModel<>(name);
-        pluginsComboBox.setModel(model);
-    }
-    private void reloadPluginsActionPerformed(ActionEvent e) {
-        // TODO add your code here
-        loadPlugin();
-    }
+//    private void pluginsComboBoxActionPerformed(ActionEvent e) {
+//        // TODO add your code here
+//        if (pluginsComboBox.getSelectedIndex()==0){
+//            return;
+//        }
+//        String select = pluginsComboBox.getItemAt(pluginsComboBox.getSelectedIndex());
+//
+//        Map<String,Object> plugin = json.search(select);
+//        String[] prams = {};
+//        ArrayList<String> keys = new ArrayList<>();
+//        if (plugin.containsKey("key")){
+//            keys = (ArrayList<String>) plugin.get("key");
+//            prams = new String[keys.size()+1];
+//        }
+//        Config.pyFunc.loadFile(plugin.get("path").toString());
+//        if (keys.size()>=1){
+//            prams[0] = inputArea.getText();
+//            for (int i = 1;i<prams.length;i++){
+//                prams[i] = JOptionPane.showInputDialog("Please input "+keys.get(i-1));
+//            }
+//            resultArea.setText(Config.pyFunc.execFuncOfArr(Config.pyFunc.loadPythonFunc(Config.pyFunc.interpreter,"main"),prams).toString());
+//        }else {
+//            resultArea.setText(Config.pyFunc.execFuncOfArr(Config.pyFunc.loadPythonFunc(Config.pyFunc.interpreter,"main"),inputArea.getText()).toString());
+//        }
+//        pluginsComboBox.setSelectedIndex(0);
+//    }
+
+//    private void loadPlugin(){
+//        plugins = json.parseJson();
+//        String[] name = new String[plugins.size()+1];
+//        name[0] = "Plugins as";
+//        for(int i=1;i<=plugins.size();i++){
+//            name[i] = String.valueOf(plugins.get(i-1).get("name"));
+//        }
+//        DefaultComboBoxModel model = new DefaultComboBoxModel<>(name);
+//        pluginsComboBox.setModel(model);
+//    }
+//    private void reloadPluginsActionPerformed(ActionEvent e) {
+//        // TODO add your code here
+//        loadPlugin();
+//    }
 
     private void encodeComboBoxActionPerformed(ActionEvent e) {
         // TODO add your code here
@@ -176,17 +178,17 @@ public class DecodePanel extends JPanel {
         pluginsComboBox.setModel(new DefaultComboBoxModel<>(new String[] {
             "Plugins as"
         }));
-        pluginsComboBox.addActionListener(e -> pluginsComboBoxActionPerformed(e));
-        add(pluginsComboBox, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+//        pluginsComboBox.addActionListener(e -> pluginsComboBoxActionPerformed(e));
+//        add(pluginsComboBox, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0,
+//            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+//            new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- reloadPlugins ----
-        reloadPlugins.setText("Reload Plugins");
-        reloadPlugins.addActionListener(e -> reloadPluginsActionPerformed(e));
-        add(reloadPlugins, new GridBagConstraints(5, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+//        //---- reloadPlugins ----
+//        reloadPlugins.setText("Reload Plugins");
+//        reloadPlugins.addActionListener(e -> reloadPluginsActionPerformed(e));
+//        add(reloadPlugins, new GridBagConstraints(5, 2, 1, 1, 0.0, 0.0,
+//            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+//            new Insets(0, 0, 5, 5), 0, 0));
 
         //---- resultCharacterCount ----
         resultCharacterCount.setText("ResultArea - Now Result Character Count:0");
@@ -272,7 +274,7 @@ public class DecodePanel extends JPanel {
         encodeComboBox.setModel(encodeModel);
         decodeComboBox.setModel(decodeModel);
         decryptComboBox.setModel(decryptModel);
-        loadPlugin();
+//        loadPlugin();
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
@@ -289,7 +291,7 @@ public class DecodePanel extends JPanel {
     private JTextArea resultArea;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private final CoreFunc func = new CoreFunc();
-    private final PluginsJson json = new PluginsJson();
-    private ArrayList<Map<String,Object>> plugins = json.parseJson();
+//    private final PluginsJson json = new PluginsJson();
+//    private ArrayList<Map<String,Object>> plugins = json.parseJson();
     private String input;
 }

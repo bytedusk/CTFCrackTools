@@ -1,6 +1,6 @@
 package org.ctfcracktools;
 
-import org.ctfcracktools.fuction.PythonFunc;
+//import org.ctfcracktools.fuction.PythonFunc;
 
 import java.io.File;
 
@@ -20,6 +20,6 @@ public class Config {
     public final static File PLUGIN_FILE = new File("ctfcracktools_plugins.json");
     public final static File SETTING_FILE = new File("ctfcracktools_setting.json");
 
-    public static PythonFunc pyFunc = new PythonFunc();
+    //public static PythonFunc pyFunc = new PythonFunc();
 
 }

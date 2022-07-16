@@ -3,9 +3,10 @@ package org.ctfcracktools;
 import java.awt.*;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import org.ctfcracktools.ui.*;
+import org.ctfcracktools.ui.MainUi;
+import org.ctfcracktools.ui.TestFile;
+//import org.ctfcracktools.ui.*;
 import javax.swing.*;
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
  * @author 0chencc
@@ -23,7 +24,9 @@ public class Main {
         f.setBounds((int)(d.getWidth()-900)/2,(int)d.getWidth()/2-600,900,600);
         MainUi m = new MainUi();
         f.add(m);
-        f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+//        TestFile testFile = new TestFile();
+//        f.add(testFile);
+        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
     }
 }

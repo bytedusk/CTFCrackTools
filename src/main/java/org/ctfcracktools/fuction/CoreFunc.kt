@@ -144,7 +144,13 @@ class CoreFunc{
      */
     private fun vigenereCode(input:String,mode:String):String{
         val pass = input.toCharArray()
-        val key = JOptionPane.showInputDialog("Please input key").toCharArray()
+        var key = pass
+        try{
+            key = JOptionPane.showInputDialog("Please input key").toCharArray()
+        }catch(npe:NullPointerException ){
+            return String(pass)
+        }
+
         var i = 0
         var j:Int
         var q = 0
